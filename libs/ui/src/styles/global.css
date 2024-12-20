@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors (Yellow/Orange) */
+  --primary-900: #D66B00;  /* Primary 0 */
+  --primary-800: #E07D00;  /* Primary 10 */
+  --primary-700: #EE9400;  /* Primary 20 */
+  --primary-600: #F5AA00;  /* Primary 30 */
+  --primary-500: #FABD00;  /* Primary 40 */
+  --primary-400: #FFCF00;  /* Primary 50 */
+  --primary-300: #FFE000;  /* Primary 60 */
+  --primary-200: #FFEB00;  /* Primary 70 */
+  --primary-100: #FFF500;  /* Primary 80 */
+  --primary-50:  #FFFC00;  /* Primary 90 */
+
+  /* Secondary Colors (Teal) */
+  --secondary-900: #1B3B35;  /* Secondary 0 */
+  --secondary-800: #234A42;  /* Secondary 10 */
+  --secondary-700: #2B584E;  /* Secondary 20 */
+  --secondary-600: #33665B;  /* Secondary 30 */
+  --secondary-500: #3B7468;  /* Secondary 40 */
+  --secondary-400: #438274;  /* Secondary 50 */
+  --secondary-300: #4B9181;  /* Secondary 60 */
+  --secondary-200: #539F8E;  /* Secondary 70 */
+  --secondary-100: #5BAD9A;  /* Secondary 80 */
+  --secondary-50:  #63BBA7;  /* Secondary 90 */
+
+  /* Tertiary Colors (Green) */
+  --tertiary-900: #1B3B1B;  /* Tertiary 0 */
+  --tertiary-800: #234A23;  /* Tertiary 10 */
+  --tertiary-700: #2B582B;  /* Tertiary 20 */
+  --tertiary-600: #336633;  /* Tertiary 30 */
+  --tertiary-500: #3B743B;  /* Tertiary 40 */
+  --tertiary-400: #438243;  /* Tertiary 50 */
+  --tertiary-300: #4B914B;  /* Tertiary 60 */
+  --tertiary-200: #539F53;  /* Tertiary 70 */
+  --tertiary-100: #5BAD5B;  /* Tertiary 80 */
+  --tertiary-50:  #63BB63;  /* Tertiary 90 */
+
+  /* Error Colors (Red) */
+  --error-900: #8B0000;  /* Error 0 */
+  --error-800: #990000;  /* Error 10 */
+  --error-700: #A80000;  /* Error 20 */
+  --error-600: #B60000;  /* Error 30 */
+  --error-500: #C50000;  /* Error 40 */
+  --error-400: #D30000;  /* Error 50 */
+  --error-300: #E20000;  /* Error 60 */
+  --error-200: #F00000;  /* Error 70 */
+  --error-100: #FF0000;  /* Error 80 */
+  --error-50:  #FF1A1A;  /* Error 90 */
+}
+
+
+@keyframes ripple-animation {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

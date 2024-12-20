@@ -1,0 +1,108 @@
+:host {
+  --pk-btn-primary-bg: #272725;
+  --pk-btn-secondary-bg: #FFFFFF;
+  --pk-btn-disabled-bg: #A6A7A4;
+  --pk-btn-outline-border: #272725;
+  --pk-btn-color: #FFFFFF;
+  --pk-btn-secondary-color: #272725;
+  --pk-btn-padding-x: 12px;
+  --pk-btn-padding-y: 8px;
+  --pk-btn-gap: 8px;
+  --pk-btn-border-radius: 12px;
+  --pk-btn-height: 40px;
+  --pk-btn-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+
+  --pk-btn-ripple-primary-color: rgba(255, 255, 255, 0.5);
+  --pk-btn-ripple-secondary-color: rgb(0, 0, 0);
+  --pk-btn-ripple-outline-color: rgb(0, 0, 0);
+
+  --pk-btn-spinner-primary-color: var(--pk-btn-color);
+  --pk-btn-spinner-secondary-color: var(--pk-btn-secondary-color);
+}
+
+.pk-btn {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--pk-btn-padding-y) var(--pk-btn-padding-x);
+  height: var(--pk-btn-height);
+
+  border: none;
+  border-radius: var(--pk-btn-border-radius);
+  box-shadow: var(--pk-btn-shadow);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  position: relative;
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease-in-out;
+
+    &.loading {
+      opacity: 0;
+    }
+  }
+
+  .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &.pk-btn-primary {
+    background: var(--pk-btn-primary-bg);
+    color: var(--pk-btn-color);
+    --pk-ripple-color: var(--pk-btn-ripple-primary-color);
+
+    &:hover:not(.pk-btn-disabled) {
+      opacity: 0.9;
+    }
+
+    ::ng-deep .mat-mdc-progress-spinner {
+      --mdc-circular-progress-active-indicator-color: var(--pk-btn-spinner-primary-color);
+    }
+  }
+
+  &.pk-btn-secondary {
+    background: var(--pk-btn-secondary-bg);
+    color: var(--pk-btn-secondary-color);
+    border: 1px solid var(--pk-btn-primary-bg);
+    --pk-ripple-color: var(--pk-btn-ripple-secondary-color);
+
+    &:hover:not(.pk-btn-disabled) {
+      background: rgba(39, 39, 37, 0.05);
+    }
+
+    ::ng-deep .mat-mdc-progress-spinner {
+      --mdc-circular-progress-active-indicator-color: var(--pk-btn-spinner-secondary-color);
+    }
+  }
+
+  &.pk-btn-outline {
+    background: transparent;
+    color: var(--pk-btn-secondary-color);
+    border: 1px solid var(--pk-btn-outline-border);
+    --pk-ripple-color: var(--pk-btn-ripple-outline-color);
+
+    &:hover:not(.pk-btn-disabled) {
+      background: rgba(39, 39, 37, 0.05);
+    }
+
+    ::ng-deep .mat-mdc-progress-spinner {
+      --mdc-circular-progress-active-indicator-color: var(--pk-btn-spinner-secondary-color);
+    }
+  }
+
+
+  &.pk-btn-disabled {
+    background: var(--pk-btn-disabled-bg);
+    color: var(--pk-btn-color);
+    cursor: not-allowed;
+    opacity: 1;
+  }
+}
