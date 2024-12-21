@@ -58,7 +58,7 @@ A versatile button component that supports multiple variants and states.
 The button component uses CSS variables for customization:
 - \`--pk-btn-primary-bg\`: Primary button background color
 - \`--pk-btn-secondary-bg\`: Secondary button background color
-- \`--pk-btn-disabled-bg\`: Disabled button background color
+- \`--pk-btn-disabled-color\`: Disabled button color
 - \`--pk-btn-outline-border\`: Outline button border color
 - \`--pk-btn-color\`: Text color for primary and disabled states
 - \`--pk-btn-secondary-color\`: Text color for secondary and outline states
@@ -108,16 +108,5 @@ export const Outline: Story = {
   render: (args) => ({
     props: args,
     template: `<button pk-button [variant]="variant" [disabled]="disabled" [loading]="loading">Outline Button</button>`,
-  }),
-};
-
-export const Disabled: Story = {
-  args: {
-    variant: 'primary',
-    disabled: true,
-  },
-  render: (args) => ({
-    props: args,
-    template: `<button pk-button [variant]="variant" [disabled]="disabled" [loading]="loading">Disabled Button</button>`,
   }),
 };

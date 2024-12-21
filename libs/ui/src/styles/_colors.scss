@@ -1,0 +1,19 @@
+@function generate-color-variants($base-color) {
+  $variants: (
+    900: darken($base-color, 20%),
+    800: darken($base-color, 15%),
+    700: darken($base-color, 10%),
+    600: darken($base-color, 5%),
+    500: $base-color,
+    400: lighten($base-color, 5%),
+    300: lighten($base-color, 10%),
+    200: lighten($base-color, 15%),
+    100: lighten($base-color, 20%),
+    50: lighten($base-color, 25%)
+  );
+  @return $variants;
+}
+
+@function contrast-color($color) {
+  @return if(lightness($color) > 50%, black, white);
+}

@@ -1,14 +1,14 @@
 import { Component, ElementRef, inject, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RippleDirective } from '../../core/ripple/ripple.directive';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SpinnerComponent } from '../../feedback/spinner/spinner.component';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'outline';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'button[pk-button]',
-  imports: [CommonModule, RippleDirective, MatProgressSpinnerModule],
+  imports: [CommonModule, RippleDirective, SpinnerComponent],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
   standalone: true,
