@@ -1,20 +1,7 @@
 @use '@angular/material' as mat;
-@use '../ui/src/styles' as pk;
+@use '../ui/src' as pk;
 
 @include mat.core();
-
-$admin-theme: mat.define-theme(
-  (
-    color: (
-      theme-type: light,
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
-    ),
-    density: (
-      scale: 0,
-    ),
-  )
-);
 
 // Define your theme configuration
 $theme-config: (
@@ -28,6 +15,5 @@ $theme-config: (
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 :root {
-  @include mat.all-component-themes($admin-theme);
   @include pk.generate-theme-variables($theme-config);
 }

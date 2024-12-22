@@ -1,0 +1,8 @@
+@forward 'styles/abstracts/functions';
+@forward 'styles/themes/theme-generator';
+@forward 'styles/components/button';
+@forward 'styles/components/spinner';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

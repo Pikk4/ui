@@ -28,12 +28,12 @@
       "configurations": {
         "production": {
           "commands": [
-            "tailwindcss -c libs/ui/tailwind.config.js -i ./libs/ui/src/styles/global.css -o ./dist/libs/ui/styles/global.css -m"
+            "tailwindcss -c libs/ui/tailwind.config.js -i ./libs/ui/src/_index.scss -o ./dist/libs/ui/_index.scss"
           ]
         },
         "development": {
           "commands": [
-            "tailwindcss -c libs/ui/tailwind.config.js -i ./libs/ui/src/styles/global.css -o ./dist/libs/ui/styles/global.css"
+            "tailwindcss -c libs/ui/tailwind.config.js -i ./libs/ui/src/_index.scss -o ./dist/libs/ui/_index.scss"
           ]
         }
       },
