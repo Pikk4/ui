@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RippleDirective } from '../../core/ripple/ripple.directive';
 import { SpinnerComponent } from '../../feedback/spinner/spinner.component';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'outline';
+export type ButtonVariant = 'flat' | 'outline';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -17,7 +17,7 @@ export type ButtonVariant = 'primary' | 'secondary' | 'outline';
   }
 })
 export class ButtonComponent {
-  variant = input<ButtonVariant>('primary');
+  variant = input<ButtonVariant>('flat');
   disabled = input<boolean>(false);
   loading = input<boolean>(false);
   private _elementRef = inject<ElementRef<HTMLElement>>(ElementRef);

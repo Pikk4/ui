@@ -15,10 +15,10 @@ const meta: Meta<ButtonComponent> = {
     variant: {
       description: 'The visual style of the button',
       control: 'select',
-      options: ['primary', 'secondary', 'outline'],
+      options: ['flat', 'outline'],
       table: {
-        type: { summary: 'primary | secondary | outline' },
-        defaultValue: { summary: 'primary' },
+        type: { summary: 'flat | outline' },
+        defaultValue: { summary: 'flat' },
       },
     },
     disabled: {
@@ -48,31 +48,64 @@ A versatile button component that supports multiple variants and states.
 
 ### Usage
 \`\`\`html
-<button pk-button variant="primary">Primary Button</button>
-<button pk-button variant="secondary">Secondary Button</button>
+<button pk-button variant="flat">Flat Button</button>
 <button pk-button variant="outline">Outline Button</button>
 <button pk-button disabled>Disabled Button</button>
 \`\`\`
 
-### Styling
-The button component uses CSS variables for customization:
-- \`--pk-btn-primary-bg\`: Primary button background color
-- \`--pk-btn-secondary-bg\`: Secondary button background color
-- \`--pk-btn-disabled-color\`: Disabled button color
-- \`--pk-btn-outline-border\`: Outline button border color
-- \`--pk-btn-color\`: Text color for primary and disabled states
-- \`--pk-btn-secondary-color\`: Text color for secondary and outline states
-- \`--pk-btn-padding-x\`: Horizontal padding
-- \`--pk-btn-padding-y\`: Vertical padding
-- \`--pk-btn-gap\`: Gap between button content elements
-- \`--pk-btn-border-radius\`: Button border radius
-- \`--pk-btn-height\`: Button height
-- \`--pk-btn-shadow\`: Button shadow
+### Color Variants
+The button component comes with predefined color classes that can be combined with variants:
 
-### Ripple Effect Variables
-- \`--pk-btn-ripple-primary-color\`: Ripple color for primary variant (default: rgba(255, 255, 255, 0.5))
-- \`--pk-btn-ripple-secondary-color\`: Ripple color for secondary variant (default: rgb(0, 0, 0))
-- \`--pk-btn-ripple-outline-color\`: Ripple color for outline variant (default: rgb(0, 0, 0))`,
+\`\`\`html
+<button pk-button variant="flat" class="pk-btn-primary">Primary Button</button>
+<button pk-button variant="flat" class="pk-btn-secondary">Secondary Button</button>
+<button pk-button variant="flat" class="pk-btn-tertiary">Tertiary Button</button>
+<button pk-button variant="flat" class="pk-btn-error">Error Button</button>
+\`\`\`
+
+### Custom Color Classes
+You can create your own button color variants by defining a class with the following CSS variables:
+
+\`\`\`css
+.pk-btn-custom {
+  --pk-btn-bg: var(--your-custom-color);
+  --pk-btn-color: var(--your-custom-text-color);
+}
+\`\`\`
+
+### Base Styling Variables
+The button component uses these CSS variables for basic customization:
+- \`--pk-btn-bg\`: Default button background color
+- \`--pk-btn-color\`: Default button text color
+- \`--pk-btn-ripple-color\`: Ripple effect color (50% opacity of button text color)
+- \`--pk-btn-disabled-bg\`: Background color for disabled state
+- \`--pk-btn-disabled-color\`: Text color for disabled state
+- \`--pk-btn-padding-x\`: Horizontal padding (12px)
+- \`--pk-btn-padding-y\`: Vertical padding (8px)
+- \`--pk-btn-border-radius\`: Button border radius (12px)
+- \`--pk-btn-height\`: Button height (40px)
+- \`--pk-btn-shadow\`: Button shadow (0px 0px 12px rgba(0, 0, 0, 0.12))
+
+### Theme Integration
+The button automatically integrates with your theme colors when using the predefined classes:
+- \`.pk-btn-primary\`: Uses your theme's primary color
+- \`.pk-btn-secondary\`: Uses your theme's secondary color
+- \`.pk-btn-tertiary\`: Uses your theme's tertiary color
+- \`.pk-btn-error\`: Uses your theme's error color
+
+### Example with Custom Color
+\`\`\`scss
+// In your styles file
+.pk-btn-purple {
+  --pk-btn-bg: #6200ee;
+  --pk-btn-color: white;
+  --pk-btn-ripple-color: color-mix(in srgb, white 50%, transparent);
+}
+\`\`\`
+
+\`\`\`html
+<button pk-button variant="flat" class="pk-btn-purple">Custom Purple Button</button>
+\`\`\``,
       },
     },
   },
@@ -81,23 +114,13 @@ The button component uses CSS variables for customization:
 export default meta;
 type Story = StoryObj<ButtonComponent>;
 
-export const Primary: Story = {
+export const Flat: Story = {
   args: {
-    variant: 'primary',
+    variant: 'flat',
   },
   render: (args) => ({
     props: args,
-    template: `<button pk-button [variant]="variant" [disabled]="disabled" [loading]="loading">Primary Button</button>`,
-  }),
-};
-
-export const Secondary: Story = {
-  args: {
-    variant: 'secondary',
-  },
-  render: (args) => ({
-    props: args,
-    template: `<button pk-button [variant]="variant" [disabled]="disabled" [loading]="loading">Secondary Button</button>`,
+    template: `<button pk-button [variant]="variant" [disabled]="disabled" [loading]="loading">Flat Button</button>`,
   }),
 };
 
@@ -108,5 +131,45 @@ export const Outline: Story = {
   render: (args) => ({
     props: args,
     template: `<button pk-button [variant]="variant" [disabled]="disabled" [loading]="loading">Outline Button</button>`,
+  }),
+};
+
+export const Primary: Story = {
+  args: {
+    variant: 'flat',
+  },
+  render: (args) => ({
+    props: args,
+    template: `<button pk-button [variant]="variant" [disabled]="disabled" [loading]="loading" class="pk-btn-primary">Primary Button</button>`,
+  }),
+};
+
+export const Secondary: Story = {
+  args: {
+    variant: 'flat',
+  },
+  render: (args) => ({
+    props: args,
+    template: `<button pk-button [variant]="variant" [disabled]="disabled" [loading]="loading" class="pk-btn-secondary">Secondary Button</button>`,
+  }),
+};
+
+export const Tertiary: Story = {
+  args: {
+    variant: 'flat',
+  },
+  render: (args) => ({
+    props: args,
+    template: `<button pk-button [variant]="variant" [disabled]="disabled" [loading]="loading" class="pk-btn-tertiary">Tertiary Button</button>`,
+  }),
+};
+
+export const Error: Story = {
+  args: {
+    variant: 'flat',
+  },
+  render: (args) => ({
+    props: args,
+    template: `<button pk-button [variant]="variant" [disabled]="disabled" [loading]="loading" class="pk-btn-error">Error Button</button>`,
   }),
 };

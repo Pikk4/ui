@@ -5,13 +5,11 @@
   justify-content: center;
   padding: var(--pk-btn-padding-y) var(--pk-btn-padding-x);
   height: var(--pk-btn-height);
-
   border: none;
   border-radius: var(--pk-btn-border-radius);
   box-shadow: var(--pk-btn-shadow);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-
   position: relative;
 
   .content {
@@ -32,10 +30,10 @@
     transform: translate(-50%, -50%);
   }
 
-  &.pk-btn-primary {
-    --pk-ripple-color: var(--pk-btn-ripple-primary-color);
+  &.pk-btn-flat {
+    --pk-ripple-color: var(--pk-btn-ripple-color);
     --pk-spinner-color: var(--pk-btn-color);
-    background: var(--pk-btn-primary-bg);
+    background: var(--pk-btn-bg);
     color: var(--pk-btn-color);
 
     &:hover:not(.pk-btn-disabled) {
@@ -48,31 +46,15 @@
     }
   }
 
-  &.pk-btn-secondary {
-    --pk-ripple-color: var(--pk-btn-ripple-secondary-color);
-    --pk-spinner-color: var(--pk-btn-secondary-color);
-    background: var(--pk-btn-secondary-bg);
-    color: var(--pk-btn-secondary-color);
+  &.pk-btn-outline {
+    --pk-ripple-color: color-mix(in srgb, var(--pk-btn-bg) 50%, transparent);
+    --pk-spinner-color: var(--pk-btn-bg);
+    background: transparent;
+    color: var(--pk-btn-bg);
+    border: 1px solid var(--pk-btn-bg);
 
     &:hover:not(.pk-btn-disabled) {
       opacity: 0.9;
-    }
-
-    &.pk-btn-disabled {
-      background: var(--pk-btn-disabled-bg);
-      color: var(--pk-btn-disabled-color);
-    }
-  }
-
-  &.pk-btn-outline {
-    --pk-ripple-color: var(--pk-btn-ripple-outline-color);
-    --pk-spinner-color: var(--pk-btn-outline-border);
-    background: transparent;
-    color: var(--pk-btn-outline-border);
-    border: 1px solid var(--pk-btn-outline-border);
-
-    &:hover:not(.pk-btn-disabled) {
-      background: rgba(39, 39, 37, 0.05);
     }
 
     &.pk-btn-disabled {

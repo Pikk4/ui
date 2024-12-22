@@ -1,14 +1,13 @@
 <div class="pk-btn"
      pkRipple
      [disabled]="disabled() || loading()"
-     [class.pk-btn-primary]="variant() === 'primary'"
-     [class.pk-btn-secondary]="variant() === 'secondary'"
+     [class.pk-btn-flat]="variant() === 'flat'"
      [class.pk-btn-outline]="variant() === 'outline'"
      [class.pk-btn-disabled]="disabled()">
   <div class="content" [class.loading]="loading()">
     <ng-content></ng-content>
   </div>
   @if (loading()) {
-    <pk-spinner class="spinner" [size]="24" ></pk-spinner>
+    <pk-spinner class="spinner" [size]="24"></pk-spinner>
   }
 </div>

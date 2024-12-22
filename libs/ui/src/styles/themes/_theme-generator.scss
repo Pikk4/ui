@@ -1,0 +1,40 @@
+@use '../abstracts/functions' as *;
+
+@mixin generate-theme-variables($theme-config) {
+  $primary: map-get($theme-config, 'primary');
+  $secondary: map-get($theme-config, 'secondary');
+  $tertiary: map-get($theme-config, 'tertiary');
+  $error: map-get($theme-config, 'error');
+
+  // Generate color variants
+  $primary-variants: generate-color-variants($primary);
+  $secondary-variants: generate-color-variants($secondary);
+  $tertiary-variants: generate-color-variants($tertiary);
+  $error-variants: generate-color-variants($error);
+
+    // Primary Colors
+    @each $variant, $color in $primary-variants {
+      --pk-primary-#{$variant}: #{$color};
+    }
+
+    // Secondary Colors
+    @each $variant, $color in $secondary-variants {
+      --pk-secondary-#{$variant}: #{$color};
+    }
+
+    // Tertiary Colors
+    @each $variant, $color in $tertiary-variants {
+      --pk-tertiary-#{$variant}: #{$color};
+    }
+
+    // Error Colors
+    @each $variant, $color in $error-variants {
+      --error-#{$variant}: #{$color};
+    }
+
+    // Contrast Colors
+    --pk-primary-contrast: #{contrast-color($primary)};
+    --pk-secondary-contrast: #{contrast-color($secondary)};
+    --pk-tertiary-contrast: #{contrast-color($tertiary)};
+    --pk-error-contrast: #{contrast-color($error)};
+}

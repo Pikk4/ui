@@ -1,0 +1,35 @@
+:root {
+    //Button variables
+    --pk-btn-bg: black;
+    --pk-btn-color: white;
+    --pk-btn-ripple-color: color-mix(in srgb, var(--pk-btn-color) 50%, transparent);
+    --pk-btn-disabled-bg: #A6A7A4;
+    --pk-btn-disabled-color: white;
+
+    --pk-btn-padding-x: 12px;
+    --pk-btn-padding-y: 8px;
+    --pk-btn-border-radius: 12px;
+    --pk-btn-height: 40px;
+    --pk-btn-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+}
+
+.pk-btn-primary {
+  --pk-btn-bg: var(--pk-primary-500);
+  --pk-btn-color: var(--pk-primary-contrast);
+}
+
+.pk-btn-secondary {
+  --pk-btn-bg: var(--pk-secondary-500);
+  --pk-btn-color: var(--pk-secondary-contrast);
+}
+
+.pk-btn-tertiary {
+  --pk-btn-bg: var(--pk-tertiary-500);
+  --pk-btn-color: var(--pk-tertiary-contrast);
+}
+
+.pk-btn-error {
+  --pk-btn-bg: var(--error-500);
+  --pk-btn-color: var(--pk-error-contrast);
+}
+
