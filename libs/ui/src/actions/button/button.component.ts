@@ -1,5 +1,6 @@
-import { Component, ElementRef, inject, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, ElementRef, inject, input } from '@angular/core';
+
 import { RippleDirective } from '../../core/ripple/ripple.directive';
 import { SpinnerComponent } from '../../feedback/spinner/spinner.component';
 
