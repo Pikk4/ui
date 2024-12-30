@@ -1,11 +1,17 @@
-import { Meta, StoryObj } from '@storybook/angular';
+import { Meta, StoryObj, moduleMetadata } from '@storybook/angular';
 
 import { FormFiledComponent } from './form-filed.component';
+import { InputDirective } from '../input/input.directive';
 
 const meta: Meta<FormFiledComponent> = {
   title: 'Forms/Form Field',
   component: FormFiledComponent,
   tags: ['autodocs'],
+  decorators: [
+    moduleMetadata({
+      imports: [InputDirective],
+    }),
+  ],
   parameters: {
     docs: {
       description: {
@@ -20,6 +26,34 @@ It supports labels and various states (default, focus, filled, error) with custo
 - Consistent styling for form inputs
 - Support for different states through CSS classes
 - Flexible sizing through CSS variables
+
+## Implementation Requirements
+
+To create a custom form control that works with this form field wrapper, your component or directive must:
+
+1. Implement the \`FormFieldControl\` abstract class:
+
+\`\`\`typescript
+export abstract class FormFieldControl<T> implements ControlValueAccessor {
+  // ... ControlValueAccessor methods
+}
+\`\`\`
+
+2. Provide the control in your component/directive using:
+
+\`\`\`typescript
+@Directive({
+  selector: '[yourSelector]',
+  standalone: true,
+  providers: [
+    { provide: FormFieldControl, useExisting: YourDirective }
+  ]
+})
+export class YourDirective implements FormFieldControl<T> {
+  // Implementation here
+}
+\`\`\`
+
 
 ## CSS Variables
 
@@ -57,7 +91,7 @@ The following CSS variables can be overwritten to customize the appearance:
 export default meta;
 type Story = StoryObj<FormFiledComponent>;
 
-export const Default: Story = {
+export const Input: Story = {
   args: {
     label: 'Label',
   },
@@ -65,7 +99,30 @@ export const Default: Story = {
     props: args,
     template: `
       <pk-form-filed [label]="label">
-        <input class="pikka-w-full pikka-bg-transparent pikka-outline-none" placeholder="Placeholder text">
+        <input pkInput placeholder="Placeholder text">
+      </pk-form-filed>
+    `,
+  }),
+};
+
+/**
+ * Example of form field with a textarea input.
+ * Useful for multi-line text input scenarios like comments or descriptions.
+ */
+export const TextArea: Story = {
+  args: {
+    label: 'Description',
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <pk-form-filed [label]="label">
+        <textarea
+          pkInput
+          placeholder="Enter your description here"
+          class="pikka-min-h-[100px] pikka-resize-y"
+          rows="4"
+        ></textarea>
       </pk-form-filed>
     `,
   }),

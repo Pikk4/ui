@@ -8,14 +8,13 @@
 .content {
   min-height: var(--pk-form-field-min-height, 40px);
   border-color: var(--pk-form-field-default-border-color);
-  animation: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  &.filled {
+    border-color: var(--pk-form-field-filled-border-color);
+  }
 
   &.focus {
     border-color: var(--pk-form-field-focus-border-color);
-  }
-
-  &.filled {
-    border-color: var(--pk-form-field-filled-border-color);
   }
 
   &.error {

@@ -11,11 +11,13 @@ export interface FormFieldStateChange {
 
 @Directive()
 export abstract class FormFieldControl<T> implements ControlValueAccessor {
-  abstract get value(): T;
-  abstract set value(obj: T);
 
-  abstract readonly stateChanges: Observable<FormFieldStateChange>;
-  readonly id?: string;
+  abstract readonly stateChanges: Observable<void>;
+  readonly idControl?: string;
+  abstract isFocused: boolean;
+  abstract hasError: boolean;
+  abstract isDisabled: boolean;
+  abstract readonly value: T | null;
 
   abstract onContainerClick(): void;
   abstract writeValue(obj: T): void;

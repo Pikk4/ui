@@ -1,6 +1,13 @@
 @if (label()) {
-  <label [attr.for]="control?.id" class="pikka-text-sm">{{ label() }}</label>
+<label [attr.for]="control()?.idControl" class="pikka-text-sm">{{
+  label()
+}}</label>
 }
-<div class="pikka-px-3 pikka-py-2 pikka-rounded-xl pikka-border content">
+<div
+  #parent
+  class="pikka-px-3 pikka-py-2 pikka-rounded-xl pikka-border content"
+  [class.focus]="isFocused()"
+  [class.filled]="isFilled()"
+>
   <ng-content></ng-content>
 </div>
