@@ -29,7 +29,7 @@
 
     // Error Colors
     @each $variant, $color in $error-variants {
-      --error-#{$variant}: #{$color};
+      --pk-error-#{$variant}: #{$color};
     }
 
     // Contrast Colors

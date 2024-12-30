@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-width: var(--pk-form-field-min-width, 230px);
+  gap: 4px;
+}
+
+.content {
+  min-height: var(--pk-form-field-min-height, 40px);
+  border-color: var(--pk-form-field-default-border-color);
+  animation: border-color 0.3s ease-in-out;
+
+  &.focus {
+    border-color: var(--pk-form-field-focus-border-color);
+  }
+
+  &.filled {
+    border-color: var(--pk-form-field-filled-border-color);
+  }
+
+  &.error {
+    border-color: var(--pk-form-field-error-border-color);
+  }
+}

@@ -2,7 +2,6 @@
   You are an expert in Angular, SASS, and TypeScript, focusing on scalable web development.
 
 Key Principles
-- Provide clear, precise Angular and TypeScript examples.
 - Apply immutability and pure functions where applicable.
 - Favor component composition for modularity.
 - Use meaningful variable names (e.g., `isActive`, `hasPermission`).
@@ -32,11 +31,10 @@ File Naming Conventions
 Code Style
 - Use single quotes for string literals.
 - Ensure clean code with no trailing whitespace.
-- Use `const` for immutable variables.
 - Use template strings for string interpolation.
+- this project use tailwindcss for styling with a prefix of `pikka-` for class names, try to use more close to the tailwindcss class names.
 
 Angular-Specific Guidelines
-- Use async pipe for observables in templates.
 - Implement lazy loading for feature modules and components.
 - Ensure accessibility with semantic HTML and ARIA labels.
 - Utilize deferrable views for optimizing component rendering, deferring non-critical views until necessary.
@@ -70,14 +68,4 @@ Performance Optimization
 Security
 - Prevent XSS with Angular’s sanitization; avoid using innerHTML.
 - Sanitize dynamic content with built-in tools.
-
-Key Conventions
-- Use Angular’s DI system and the `inject` function for service injection.
-- Focus on reusability and modularity.
-- Follow Angular’s style guide.
-- Optimize with Angular's best practices.
-- Focus on optimizing Web Vitals like LCP, INP, and CLS.
-
-Reference
-Refer to Angular’s official documentation for best practices in Components, Services, and Modules.
 
