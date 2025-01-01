@@ -1,0 +1,35 @@
+<div
+  class="select-container"
+  cdk-overlay-origin
+  #fallbackOverlayOrigin="cdkOverlayOrigin"
+>
+  <span class="select-text" [class.placeholder]="!value">
+    <span [innerHTML]="selectedOptionText || placeholder()"></span>
+  </span>
+</div>
+
+<ng-template
+  cdk-connected-overlay
+  cdkConnectedOverlayLockPosition
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+  [cdkConnectedOverlayScrollStrategy]="scrollStrategy"
+  [cdkConnectedOverlayOrigin]="parentOrigin || fallbackOverlayOrigin"
+  [cdkConnectedOverlayPositions]="positions"
+  [cdkConnectedOverlayOpen]="isOpen()"
+  [cdkConnectedOverlayWidth]="overlayWidth"
+  (backdropClick)="closeModal()"
+  (detach)="detachModal()"
+>
+  <div
+    class="select-panel shadow-custom"
+    [@transformPanel]="'showing'"
+    tabindex="0"
+    (keydown)="onPanelKeydown($event)"
+    #panel
+  >
+    <div>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</ng-template>

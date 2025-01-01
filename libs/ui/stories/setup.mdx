@@ -1,0 +1,236 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started/Setup" />
+
+# Getting Started with @pikka/ui
+
+A modern Angular UI component library built with Angular 17+, featuring standalone components, signals, and TailwindCSS integration.
+
+## Installation
+
+1. Install the package and its peer dependencies:
+
+```bash
+npm install @pikka/ui @angular/cdk @angular/material
+```
+
+## Basic Setup
+
+### 1. Configure Styles
+
+Import the Pikka UI styles in your global styles file:
+
+```css
+// styles.scss
+@use '@pikka/ui' as pk;
+
+// Define your theme configuration
+$theme-config: (
+  primary: #FABD00,    // Your primary color
+  secondary: #3B7468,  // Your secondary color
+  tertiary: #3B743B,   // Your tertiary color
+  error: #C50000       // Your error color
+);
+
+// Generate theme variables
+:root {
+  @include pk.generate-theme-variables($theme-config);
+}
+```
+
+### 2. Configure Angular Animations
+
+For standalone applications:
+
+```typescript
+// main.ts
+import { provideAnimations } from '@angular/platform-browser/animations';
+
+bootstrapApplication(RootComponent, {
+  providers: [
+    provideAnimations()
+  ]
+});
+```
+
+For module-based applications:
+
+```typescript
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+@NgModule({
+  imports: [BrowserAnimationsModule],
+  // ...
+})
+export class AppModule {}
+```
+
+## Component Usage
+
+All components in @pikka/ui are standalone components. Import them directly in your components:
+
+```typescript
+import { ButtonComponent } from '@pikka/ui/actions';
+import { FormFieldComponent } from '@pikka/ui/forms';
+
+@Component({
+  // ...
+  imports: [ButtonComponent, FormFieldComponent],
+  // ...
+})
+export class YourComponent {}
+```
+
+## Theming System
+
+### Color System
+
+The library uses a comprehensive color system that can be customized through the theme configuration:
+
+```css
+$theme-config: (
+  primary: #FABD00,
+  secondary: #3B7468,
+  tertiary: #3B743B,
+  error: #C50000
+);
+```
+
+Each color generates multiple shades that can be accessed via CSS variables:
+
+```css
+--pk-primary-50: /* lightest shade */
+--pk-primary-100
+--pk-primary-200
+--pk-primary-300
+--pk-primary-400
+--pk-primary-500  /* base color */
+--pk-primary-600
+--pk-primary-700
+--pk-primary-800
+--pk-primary-900
+--pk-primary-950: /* darkest shade */
+```
+
+The same pattern applies for secondary, tertiary, and error colors.
+
+### Component-Specific Theming
+
+Many components support customization through CSS variables:
+
+#### Button Component
+```css
+--pk-btn-padding-x: 12px;
+--pk-btn-padding-y: 8px;
+--pk-btn-height: 40px;
+--pk-btn-border-radius: 12px;
+--pk-btn-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+```
+
+#### Form Field Component
+```css
+--pk-form-field-min-height: 40px;
+--pk-form-field-min-width: 230px;
+--pk-form-field-default-border-color: #7C7D7A;
+--pk-form-field-focus-border-color: var(--pk-primary-500);
+--pk-form-field-filled-border-color: var(--pk-primary-800);
+--pk-form-field-error-border-color: var(--pk-error-500);
+```
+
+### Font Configuration
+
+The library uses Montserrat as its default font family. To set up the default font:
+
+1. First, import Montserrat from Google Fonts in your main styles file:
+
+```css
+// styles.scss
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+```
+
+2. Then configure your theme as usual:
+
+```css
+@use '@pikka/ui' as pk;
+
+$theme-config: (
+  primary: #FABD00,
+  secondary: #3B7468,
+  tertiary: #3B743B,
+  error: #C50000
+);
+
+:root {
+  @include pk.generate-theme-variables($theme-config);
+}
+
+// Optionally, you can set the font-family globally
+html {
+  font-family: 'Montserrat', sans-serif;
+}
+```
+
+The library components will automatically use the Montserrat font through the `--pk-font-family` CSS variable. However, you can customize this by either:
+
+1. Override the CSS variable directly:
+
+```css
+:root {
+  --pk-font-family: 'Your-Font-Family', sans-serif;
+}
+```
+
+2. Or modify your theme configuration to include a custom font:
+
+```css
+@use '@pikka/ui' as pk;
+
+// Import your custom font
+@import url('your-font-url');
+
+$theme-config: (
+  primary: #FABD00,
+  secondary: #3B7468,
+  tertiary: #3B743B,
+  error: #C50000
+);
+
+:root {
+  @include pk.generate-theme-variables($theme-config);
+  --pk-font-family: 'Your-Font-Family', sans-serif;
+}
+```
+
+Make sure to import your custom font before using it in the configuration.
+
+## Component Categories
+
+### Actions
+- `ButtonComponent` - Versatile button component with multiple variants
+- `RippleDirective` - Adds material-style ripple effect to elements
+
+### Forms
+- `FormFieldComponent` - Wrapper for form controls
+- `InputDirective` - Enhanced input control
+- `SelectComponent` - Custom select component
+
+### Feedback
+- `SpinnerComponent` - Loading indicator
+
+
+## Browser Support
+
+The library supports all modern browsers:
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
+
+For bug reports and feature requests, please visit our GitHub repository:
+[Pikka UI Repository](https://github.com/your-repo-url)
+
+## License
+
+MIT License - see LICENSE file for details

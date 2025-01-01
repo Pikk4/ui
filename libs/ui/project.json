@@ -8,7 +8,9 @@
   "targets": {
     "build-angular": {
       "executor": "@nx/angular:package",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/dist/{projectRoot}"
+      ],
       "options": {
         "project": "libs/ui/ng-package.json"
       },
@@ -24,16 +26,18 @@
     },
     "build-styles": {
       "executor": "nx:run-commands",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/dist/{projectRoot}"
+      ],
       "configurations": {
         "production": {
           "commands": [
-            "tailwindcss -c libs/ui/tailwind.config.js -i ./libs/ui/src/_index.scss -o ./dist/libs/ui/_index.scss"
+            "tailwindcss -c libs/ui/tailwind.config.js -i libs/ui/src/styles/global.css -o ./dist/libs/ui/global.css"
           ]
         },
         "development": {
           "commands": [
-            "tailwindcss -c libs/ui/tailwind.config.js -i ./libs/ui/src/_index.scss -o ./dist/libs/ui/_index.scss"
+            "tailwindcss -c libs/ui/tailwind.config.js -i libs/ui/src/styles/global.css -o ./dist/libs/ui/global.css"
           ]
         }
       },
@@ -41,7 +45,9 @@
     },
     "build": {
       "executor": "nx:run-commands",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/dist/{projectRoot}"
+      ],
       "configurations": {
         "production": {
           "commands": [
@@ -64,7 +70,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "libs/ui/jest.config.ts"
       }
@@ -88,13 +96,17 @@
     },
     "build-storybook": {
       "executor": "@storybook/angular:build-storybook",
-      "outputs": ["{workspaceRoot}/dist/storybook/ui"],
+      "outputs": [
+        "{workspaceRoot}/dist/storybook/ui"
+      ],
       "options": {
         "outputDir": "dist/storybook/ui",
         "configDir": "libs/ui/.storybook",
         "browserTarget": "ui:build-storybook",
         "compodoc": false,
-        "styles": ["libs/styles/material.scss", "libs/ui/src/styles/global.css"]
+        "styles": [
+          "libs/styles/material.scss"
+        ]
       },
       "configurations": {
         "ci": {

@@ -99,7 +99,7 @@ export const Input: Story = {
     props: args,
     template: `
       <pk-form-filed [label]="label">
-        <input pkInput placeholder="Placeholder text">
+        <input pkInput placeholder="Enter your description here">
       </pk-form-filed>
     `,
   }),
@@ -120,7 +120,6 @@ export const TextArea: Story = {
         <textarea
           pkInput
           placeholder="Enter your description here"
-          class="pikka-min-h-[100px] pikka-resize-y"
           rows="4"
         ></textarea>
       </pk-form-filed>

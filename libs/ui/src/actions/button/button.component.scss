@@ -1,3 +1,13 @@
+:host {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  & > * {
+    box-sizing: border-box;
+  }
+}
+
 .pk-btn {
   display: inline-flex;
   flex-direction: row;
@@ -11,6 +21,7 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   position: relative;
+  font-size: var(--pk-btn-font-size);
 
   .content {
     display: flex;

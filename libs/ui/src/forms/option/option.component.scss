@@ -1,0 +1,33 @@
+.option-content {
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.25rem;
+  cursor: pointer;
+
+  .option-text {
+    flex: 1;
+  }
+
+  .option-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &:hover {
+    background-color: var(--pk--option-hover-color);
+  }
+
+  &.active {
+    background-color: var(--pk--option-active-color);
+    &:hover {
+      background-color: var(--pk--option-active-color);
+    }
+  }
+
+  &.selected {
+    background-color: var(--pk--option-selected-color);
+    &:hover {
+      background-color: var(--pk--option-selected-color);
+    }
+  }
+}

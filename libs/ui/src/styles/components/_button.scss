@@ -5,6 +5,7 @@
     --pk-btn-ripple-color: color-mix(in srgb, var(--pk-btn-color) 50%, transparent);
     --pk-btn-disabled-bg: #A6A7A4;
     --pk-btn-disabled-color: white;
+    --pk-btn-font-size: 1rem;
 
     --pk-btn-padding-x: 12px;
     --pk-btn-padding-y: 8px;
@@ -29,7 +30,7 @@
 }
 
 .pk-btn-error {
-  --pk-btn-bg: var(--error-500);
+  --pk-btn-bg: var(--pk-error-500);
   --pk-btn-color: var(--pk-error-contrast);
 }
 

@@ -1,0 +1,13 @@
+<div
+  class="option-content"
+  [ngClass]="{ active: isActive(), selected: isSelected() }"
+>
+  <div class="option-text" #textContent>
+    <ng-content></ng-content>
+  </div>
+  <div class="option-icon">
+    @if(isSelected()) {
+    <i class="material-icons">check</i>
+    }
+  </div>
+</div>

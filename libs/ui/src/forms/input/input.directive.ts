@@ -15,6 +15,7 @@ import { FormFieldControl } from '../form-filed/form-field.control';
   providers: [{ provide: FormFieldControl, useExisting: InputDirective }],
   host: {
     '[attr.disabled]': 'isDisabled ? true : undefined',
+    'class': 'pk-input'
   },
 })
 export class InputDirective implements FormFieldControl<string> {
@@ -69,8 +70,6 @@ export class InputDirective implements FormFieldControl<string> {
     if (this.ngControl) {
       this.ngControl.valueAccessor = this;
     }
-    this.renderer.addClass(this.elementRef.nativeElement, 'pikka-outline-none');
-    this.renderer.addClass(this.elementRef.nativeElement, 'pikka-w-full');
     this.renderer.setAttribute(this.elementRef.nativeElement, 'id', this.id());
   }
 

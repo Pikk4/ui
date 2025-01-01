@@ -37,4 +37,7 @@
     --pk-secondary-contrast: #{contrast-color($secondary)};
     --pk-tertiary-contrast: #{contrast-color($tertiary)};
     --pk-error-contrast: #{contrast-color($error)};
+
+    // font-family
+    --pk-font-family: 'Montserrat', sans-serif;
 }

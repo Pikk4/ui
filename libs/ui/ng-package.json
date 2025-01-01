@@ -9,6 +9,11 @@
       "glob": "**/*",
       "input": "src/styles",
       "output": "styles"
+    },
+    {
+      "glob": "_index.scss",
+      "input": "src",
+      "output": "/"
     }
   ]
 }

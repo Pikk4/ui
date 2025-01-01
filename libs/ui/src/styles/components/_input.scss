@@ -1,0 +1,17 @@
+:root {
+  --pk-input-placeholder-color: #a5a4a4;
+}
+.pk-input {
+  outline: none;
+  width: 100%;
+  margin: 0;
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: var(--pk-font-family);
+
+  &::placeholder {
+    color: var(--pk-input-placeholder-color);
+  }
+}

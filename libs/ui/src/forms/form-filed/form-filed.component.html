@@ -1,11 +1,11 @@
 @if (label()) {
-<label [attr.for]="control()?.idControl" class="pikka-text-sm">{{
+<label [attr.for]="control()?.idControl" class="label">{{
   label()
 }}</label>
 }
 <div
   #parent
-  class="pikka-px-3 pikka-py-2 pikka-rounded-xl pikka-border content"
+  class="content"
   [class.focus]="isFocused()"
   [class.filled]="isFilled()"
 >

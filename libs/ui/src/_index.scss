@@ -3,7 +3,33 @@
 @forward 'styles/components/button';
 @forward 'styles/components/spinner';
 @forward 'styles/components/form-field';
+@forward 'styles/components/options';
+@forward 'styles/components/input';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.cdk-overlay-transparent-backdrop {
+  // Define a transition on the visibility so that the `transitionend` event can fire immediately.
+  transition: visibility 1ms linear, opacity 1ms linear;
+  visibility: hidden;
+  opacity: 1;
+
+  // Note: as of Firefox 57, having the backdrop be `background: none` will prevent it from
+  // capturing the user's mouse scroll events. Since we also can't use something like
+  // `rgba(0, 0, 0, 0)`, we work around the inconsistency by not setting the background at
+  // all and using `opacity` to make the element transparent.
+  &.cdk-overlay-backdrop-showing,
+  .cdk-high-contrast-active & {
+    opacity: 0;
+    visibility: visible;
+  }
+}
+
+@keyframes ripple-animation {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
