@@ -1,4 +1,4 @@
-# @pikka/ui
+# @p1kka/ui
 
 A modern Angular UI component library built with Angular 17+, featuring standalone components, signals, and a powerful theming system. This library provides a collection of reusable, accessible, and customizable UI components.
 
@@ -15,7 +15,7 @@ A modern Angular UI component library built with Angular 17+, featuring standalo
 ## Installation
 
 ```bash
-npm install @pikka/ui @angular/cdk
+npm install @p1kka/ui @angular/cdk
 ```
 
 ## Quick Setup
@@ -29,7 +29,7 @@ npm install @pikka/ui @angular/cdk
 2. Configure styles (in `styles.scss`):
 
 ```scss
-@use '@pikka/ui' as pk;
+@use '@p1kka/ui' as pk;
 
 $theme-config: (
   primary: #FABD00,    // Your primary color
@@ -59,8 +59,8 @@ bootstrapApplication(RootComponent, {
 Import and use components directly in your templates:
 
 ```typescript
-import { ButtonComponent } from '@pikka/ui/actions';
-import { FormFieldComponent } from '@pikka/ui/forms';
+import { ButtonComponent } from '@p1kka/ui/actions';
+import { FormFieldComponent } from '@p1kka/ui/forms';
 
 @Component({
   // ...

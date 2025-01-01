@@ -69,3 +69,37 @@ Security
 - Prevent XSS with Angular’s sanitization; avoid using innerHTML.
 - Sanitize dynamic content with built-in tools.
 
+Commit Message Guidelines (Conventional Commits)
+- Follow the Conventional Commits specification for all commit messages
+- Format: <type>[optional scope]: <description>
+  [optional body]
+  [optional footer(s)]
+
+Types:
+- feat: New feature (correlates with MINOR in semver)
+- fix: Bug fix (correlates with PATCH in semver)
+- docs: Documentation changes
+- style: Code style changes (formatting, missing semi colons, etc)
+- refactor: Code changes that neither fixes a bug nor adds a feature
+- perf: Performance improvements
+- test: Adding or updating tests
+- chore: Changes to build process or auxiliary tools
+- ci: Changes to CI configuration files and scripts
+
+Guidelines:
+- Use imperative mood in commit description (e.g., "add" not "added")
+- Description should not exceed 72 characters
+- Use scope to indicate affected area (e.g., feat(ui): add button component)
+- Breaking changes must be indicated by:
+  1. ! after type/scope: feat(api)!: remove user endpoints
+  2. BREAKING CHANGE: in footer
+- Body should explain what and why vs how
+- Reference issues in footer using "Fixes #123" or "Refs #123"
+
+Examples:
+feat(auth): add login functionality
+fix(button): resolve click event propagation
+docs: update README installation steps
+refactor(core): simplify data processing logic
+BREAKING CHANGE: change API response format
+
