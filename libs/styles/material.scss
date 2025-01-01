@@ -1,9 +1,6 @@
-@use '@angular/material' as mat;
 @use '../ui/src' as pk;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-@include mat.core();
 
 // Define your theme configuration
 $theme-config: (
