@@ -37,7 +37,11 @@ jobs:
           version: 8
           run_install: false
 
-      - run: ls -la
+      - run: |
+          echo "Current directory:"
+          pwd
+          echo "Contents of current directory:"
+          ls -la
 
       # - name: Get pnpm store directory
       #   shell: bash
