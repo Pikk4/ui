@@ -52,8 +52,8 @@ jobs:
       #     restore-keys: |
       #       ${{ runner.os }}-pnpm-store-
 
-      # - name: Install dependencies
-      #   run: pnpm install --frozen-lockfile
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       # - name: Build Storybook
       #   run: pnpm nx run ui:build-storybook
