@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-  # Allow manual trigger
-  workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -39,33 +37,35 @@ jobs:
           version: 8
           run_install: false
 
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      - run: ls -la
 
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+      # - name: Get pnpm store directory
+      #   shell: bash
+      #   run: |
+      #     echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      # - name: Setup pnpm cache
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: ${{ env.STORE_PATH }}
+      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-pnpm-store-
 
-      - name: Build Storybook
-        run: pnpm nx run ui:build-storybook
+      # - name: Install dependencies
+      #   run: pnpm install --frozen-lockfile
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      # - name: Build Storybook
+      #   run: pnpm nx run ui:build-storybook
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist/storybook/ui'
+      # - name: Setup Pages
+      #   uses: actions/configure-pages@v4
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: './dist/storybook/ui'
+
+      # - name: Deploy to GitHub Pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v4
