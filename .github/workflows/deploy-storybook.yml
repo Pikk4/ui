@@ -11,10 +11,10 @@ permissions:
   pages: write
   id-token: write
 
-# # Allow only one concurrent deployment
-# concurrency:
-#   group: "pages"
-#   cancel-in-progress: true
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   deploy-storybook:
@@ -43,27 +43,27 @@ jobs:
           echo "Contents of current directory:"
           ls -la
 
-      # - name: Get pnpm store directory
-      #   shell: bash
-      #   run: |
-      #     echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      # - name: Setup pnpm cache
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: ${{ env.STORE_PATH }}
-      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-pnpm-store-
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: pnpm install
 
-      # - name: Build Storybook
-      #   run: pnpm nx run ui:build-storybook
+      - name: Build Storybook
+        run: pnpm nx run ui:build-storybook
 
-      # - name: Setup Pages
-      #   uses: actions/configure-pages@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@v3
