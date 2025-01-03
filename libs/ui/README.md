@@ -145,4 +145,4 @@ MIT License - see LICENSE file for details
 
 For bug reports and feature requests, please visit our [GitHub repository](https://github.com/Pikk4/ui).
 
-For detailed documentation and examples, visit our [Storybook documentation](https://your-storybook-url).
+For detailed documentation and examples, visit our [Storybook documentation](https://pikk4.github.io/ui).
