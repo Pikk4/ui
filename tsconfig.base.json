@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@p1kka/ui": ["libs/ui/src/index.ts"]
+      "@p1kka/ui": ["libs/ui/src/index.ts"],
+      "@p1kka/ui/src/feedback": ["libs/ui/src/feedback/index.ts"],
+      "@p1kka/ui/src/core": ["libs/ui/src/core/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

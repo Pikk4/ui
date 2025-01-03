@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, inject, input } from '@angular/core';
 
-import { RippleDirective } from '../../core/ripple/ripple.directive';
-import { SpinnerComponent } from '../../feedback/spinner/spinner.component';
+import { RippleDirective } from '@p1kka/ui/src/core';
+import { SpinnerComponent } from '@p1kka/ui/src/feedback';
+
+
 
 export type ButtonVariant = 'flat' | 'outline';
 
